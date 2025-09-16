@@ -1,4 +1,4 @@
-package api;
+package myproject.weatherapi.api;
 
 import java.net.URI;
 import java.net.http.HttpClient;

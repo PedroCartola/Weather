@@ -1,8 +1,8 @@
-package validator;
+package myproject.weatherapi.validator;
 
 import java.util.ArrayList;
 import java.util.List;
-import static util.DialogUtil.showError;
+import static myproject.weatherapi.util.DialogUtil.showError;
 
 public class UsuarioValidator {
     // Método principal de validação que combina todas as regras

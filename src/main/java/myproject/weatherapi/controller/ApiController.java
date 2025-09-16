@@ -1,6 +1,6 @@
-package controller;
+package myproject.weatherapi.controller;
 
-import api.apiWeather;
+import myproject.weatherapi.api.apiWeather;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;

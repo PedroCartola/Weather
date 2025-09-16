@@ -1,5 +1,5 @@
 
-package util;
+package myproject.weatherapi.util;
 
 import java.util.Optional;
 import javafx.scene.control.Alert;

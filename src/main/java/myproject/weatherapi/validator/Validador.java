@@ -1,5 +1,5 @@
 
-package validator;
+package myproject.weatherapi.validator;
 
 
 public interface Validador<T> {

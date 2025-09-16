@@ -1,4 +1,4 @@
-package model;
+package myproject.weatherapi.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

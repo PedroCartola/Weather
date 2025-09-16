@@ -1,4 +1,4 @@
-package controller;
+package myproject.weatherapi.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

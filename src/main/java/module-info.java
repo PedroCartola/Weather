@@ -6,10 +6,14 @@ module myproject.weatherapi {
     requires java.desktop;
     requires javafx.base;
     requires javafx.graphics;
+    requires static lombok;
+    requires jakarta.persistence;
+    requires spring.context;
+    requires spring.data.jpa;
 
 
-    opens controller to javafx.fxml;
-    exports controller;
+    opens myproject.weatherapi.controller to javafx.fxml;
+    exports myproject.weatherapi.controller;
 
     opens myproject.weatherapi to javafx.fxml;
     exports myproject.weatherapi;

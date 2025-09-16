@@ -1,4 +1,4 @@
-package model;
+package myproject.weatherapi.model;
 
 
 public class UsuarioDTO {

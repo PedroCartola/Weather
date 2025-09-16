@@ -1,4 +1,4 @@
-package model;
+package myproject.weatherapi.model;
 
 import java.util.logging.Logger;
 import java.util.logging.Level;
@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import static util.DialogUtil.showError;
+import static myproject.weatherapi.util.DialogUtil.showError;
 
 public class UsuarioDAO {
 

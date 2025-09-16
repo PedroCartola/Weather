@@ -1,4 +1,4 @@
-package validator;
+package myproject.weatherapi.validator;
 
 
 public class CampoObrigatorioValidador implements Validador<String> {

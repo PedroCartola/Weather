@@ -6,7 +6,7 @@
 <?import javafx.scene.text.TextFlow?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ApiController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myproject.weatherapi.controller.ApiController">
    <children>
       <Button fx:id="btnVoltar" layoutX="42.0" layoutY="424.0" mnemonicParsing="false" onAction="#mudarTelaMenu" prefHeight="25.0" prefWidth="228.0" style="-fx-background-color: #363636;" text="Voltar" textFill="WHITE" />
       <Button fx:id="btnBuscar" layoutX="42.0" layoutY="151.0" mnemonicParsing="false" onAction="#apiFunction" prefHeight="25.0" prefWidth="228.0" text="Buscar" />
