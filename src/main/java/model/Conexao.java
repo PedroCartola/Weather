@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexao {
-    static String stringconexao = "jdbc:postgresql://localhost:5432/ApiJava";
+    static String stringconexao = "jdbc:postgresql:/localhost:5432/ApiJava";
     static String usuario = "postgres";
     static String senha = "123";
     

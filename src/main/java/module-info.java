@@ -4,6 +4,9 @@ module myproject.weatherapi {
     requires java.net.http;
     requires java.sql;
     requires java.desktop;
+    requires javafx.base;
+    requires javafx.graphics;
+
 
     opens controller to javafx.fxml;
     exports controller;

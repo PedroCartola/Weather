@@ -6,32 +6,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class weather extends Application {
 
-    static Parent menuScene;
-    static Parent apiScene;
-    String scr = "menu";
+    @Override
+    public void start(Stage primaryStage) throws Exception{
 
-    @FXML
-    public void start(Stage Primarystage) throws Exception {
-
-        switch (scr) {
-            case "api":
-                FXMLLoader FXMLapi = new FXMLLoader(getClass().getResource("view/FXMLApi.fxml"));
-                apiScene = FXMLapi.load();
-                Stage stageApi = new Stage();
-                stageApi.setScene(new Scene(menuScene));
-                stageApi.show();
-                break;
-            case "menu":
-                FXMLLoader FXMLmenu = new FXMLLoader(getClass().getResource("view/FXMLMenu.fxml"));
-                menuScene = FXMLmenu.load();
-                Stage stageMenu = new Stage();
-                stageMenu.setScene(new Scene(menuScene));
-                stageMenu.show();
-                break;
-
+        try {
+            Parent menuScene = FXMLLoader.load(getClass().getResource("/view/menu.fxml"));
+            primaryStage.initStyle(StageStyle.UNDECORATED);
+            primaryStage.setScene(new Scene(menuScene));
+            primaryStage.show();
+        } catch (Exception e){
+            System.err.println("Erro: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
