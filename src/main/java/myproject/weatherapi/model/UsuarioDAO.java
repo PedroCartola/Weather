@@ -13,13 +13,14 @@ import static myproject.weatherapi.util.DialogUtil.showError;
 public class UsuarioDAO {
 
     public void cadastrarUsuario(UsuarioDTO usuario) throws SQLException {
-        String sql = "INSERT INTO usuario(nome, email, senha) VALUES (?,?,?)";
+        String sql = "INSERT INTO usuarios (nome, email, senha) VALUES (?,?,?)";
 
-        try (Connection con = new Conexao().getConnection(); PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
+        try (Connection con = new Conexao().getConnection();
+             PreparedStatement ps = con.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, usuario.getNome());
             ps.setString(2, usuario.getEmail());
             ps.setString(3, usuario.getSenha());
-            ps.execute();
+            ps.executeUpdate();
             try (ResultSet rs = ps.getGeneratedKeys()) {
                 if (rs.next()) {
                     usuario.setId(rs.getInt(1));

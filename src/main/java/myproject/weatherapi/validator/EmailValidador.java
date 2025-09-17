@@ -5,7 +5,8 @@ import java.util.regex.Pattern;
 
 
 public class EmailValidador implements Validador<String> {
-     private static final String EMAIL_REGEX = "^[\\w.-]+@[\\w.-]+\\.\\w+$";
+
+    private static final String EMAIL_REGEX = "^[\\w.-]+@[\\w.-]+\\.\\w+$";
     private final Pattern pattern = Pattern.compile(EMAIL_REGEX);
     private final String email; // Armazena o e-mail a ser validado
 
