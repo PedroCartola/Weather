@@ -10,6 +10,9 @@ module myproject.weatherapi {
     requires jakarta.persistence;
     requires spring.context;
     requires spring.data.jpa;
+    requires org.hibernate.orm.core;
+    requires com.fasterxml.jackson.databind;
+    requires org.postgresql.jdbc;
 
 
     opens myproject.weatherapi.controller to javafx.fxml;

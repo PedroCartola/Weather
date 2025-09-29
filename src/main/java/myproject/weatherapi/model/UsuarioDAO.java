@@ -32,38 +32,48 @@ public class UsuarioDAO {
         }
     }
 
-    public void selecionarUsuarios() {
-        String sql = "SELECT * FROM usuario";
-        try (Connection con = new Conexao().getConnection(); PreparedStatement ps = con.prepareStatement(sql); ResultSet rs = ps.executeQuery();) {
-            while (rs.next()) {
-                //System.out.println("#"+ rs.getInt("id")+ " # "+rs.getString("nome")+ " # "+rs.getString("email")+ " # "+rs.getString("senha")+ " # "+rs.getString("login"));
+    public boolean login(UsuarioDTO usuario) throws SQLException {
+        String sql = "SELECT id, nome, email, senha FROM usuarios WHERE email = ? AND senha = ?";
+
+        try (Connection con = new Conexao().getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, usuario.getEmail());
+            ps.setString(2, usuario.getSenha());
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    usuario.setId(rs.getInt("id"));
+                    usuario.setNome(rs.getString("nome"));
+                    return true;
+                }
+                else {
+                    return false;
+                }
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            showError("Erro ao selecionar os usuários");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new SQLException("Erro ao fazer login: " + e.getMessage());
         }
     }
 
-    public List<UsuarioDTO> listarUsuarios() {
-        List<UsuarioDTO> usuarios = new ArrayList<>();
-        String sql = "SELECT * FROM usuario";
+    public UsuarioDTO buscarEmail(String email) throws SQLException {
+        String sql = "SELECT * FROM usuarios WHERE email = ?";
 
-        try (Connection con = new Conexao().getConnection(); PreparedStatement ps = con.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+        try (Connection con = new Conexao().getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
 
-            while (rs.next()) {
+            if (rs.next()) {
                 UsuarioDTO usuario = new UsuarioDTO();
                 usuario.setId(rs.getInt("id"));
                 usuario.setNome(rs.getString("nome"));
                 usuario.setEmail(rs.getString("email"));
-                usuario.setSenha(rs.getString("senha"));
-                usuarios.add(usuario);
+                // outros campos...
+                return usuario;
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-            showError("Erro ao listar os usuários");
         }
-
-        return usuarios;
+        return null;
     }
 
     public void deletarUsuario(int id) {

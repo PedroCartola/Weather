@@ -45,7 +45,7 @@ public class CadastrarController{
     }
 
     public void cadastrar(javafx.event.ActionEvent event) throws SQLException, IOException {
-        if (usuarioValidador.validarUsuario(txtNome.getText(), txtEmail.getText(), txtSenha.getText())) {
+        if (usuarioValidador.validarUsuario(txtEmail.getText(), txtSenha.getText())) {
             UsuarioDAO usuarioDAO = new UsuarioDAO();
             String nome = txtNome.getText();
             String senha = txtSenha.getText();
